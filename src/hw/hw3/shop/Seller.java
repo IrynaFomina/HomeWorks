@@ -4,15 +4,9 @@ public class Seller {
     private String sellerName;
     private Product productList[];
 
-    public Seller(String sellerName) {
+    public Seller(String sellerName, Product[] productList) {
         this.sellerName = sellerName;
-    }
-
-    public void addNewProduct(Product product){
-        productList.length
-    }
-
-    public void setProductList(Product[] productList) {
         this.productList = productList;
     }
+
 }

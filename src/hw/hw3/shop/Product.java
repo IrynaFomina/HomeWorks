@@ -3,11 +3,12 @@ package hw.hw3.shop;
 public class Product {
     private String productName;
     private Float price;
-    private Boolean isAvaliable;
+    private Boolean isAvailable;
 
-    public Product(String productName, Float price) {
+    public Product(String productName, Float price, Boolean isAvailable) {
         this.productName = productName;
         this.price = price;
+        this.isAvailable = isAvailable;
     }
 
     public String getProductName() {
@@ -18,11 +19,11 @@ public class Product {
         return price;
     }
 
-    public Boolean getAvaliable() {
-        return isAvaliable;
+    public Boolean isAvailable() {
+        return isAvailable;
     }
 
     public void setAvaliable(Boolean avaliable) {
-        isAvaliable = avaliable;
+        isAvailable = avaliable;
     }
 }

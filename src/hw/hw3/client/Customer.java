@@ -1,5 +1,7 @@
 package hw.hw3.client;
 
+import hw.hw3.shop.Product;
+
 public class Customer {
     private String customerName;
     private String cardNumber;
@@ -11,11 +13,18 @@ public class Customer {
         order = new Order();
     }
 
-    public void addToOrder(){};
-    
-    private void removeFromOrder(){};
+    public void addToOrder(Product product) {
+        if (order.addProduct(product)) {
+            System.out.println("Товар " + product.getProductName() + " по цене " + product.getPrice() + " добавлен в корзину пользователя" + customerName);
+        } else System.out.println("Товара нет в наличи");
+    }
 
-    private boolean payOrder(){
+    private void removeFromOrder() {
+    }
+
+    ;
+
+    private boolean payOrder() {
         return false;
     }
 }
