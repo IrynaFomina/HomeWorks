@@ -1,30 +1,35 @@
 package hw.hw3.client;
 
-import hw.hw3.shop.Product;
-
 public class Customer {
     private String customerName;
     private String cardNumber;
+    private Double account = 100D;
     private Order order;
+
 
     public Customer(String customerName, String cardNumber) {
         this.customerName = customerName;
         this.cardNumber = cardNumber;
-        order = new Order();
+        order = new Order(customerName);
     }
 
-    public void addToOrder(Product product) {
-        if (order.addProduct(product)) {
-            System.out.println("Товар " + product.getProductName() + " по цене " + product.getPrice() + " добавлен в корзину пользователя" + customerName);
-        } else System.out.println("Товара нет в наличи");
+    public boolean payOrder() {
+        return Double.compare(account, order.getSum()) == 1;
     }
 
-    private void removeFromOrder() {
+    public Order getOrder() {
+        return order;
     }
 
-    ;
+    public Double getAccount() {
+        return account;
+    }
 
-    private boolean payOrder() {
-        return false;
+    public void setAccount(Double account) {
+        this.account = account;
+    }
+
+    public String getCustomerName() {
+        return customerName;
     }
 }

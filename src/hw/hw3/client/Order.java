@@ -7,10 +7,12 @@ import java.util.Arrays;
 public class Order {
     private String[] products;
     private Float sum;
+    private String customerName;
 
-    Order() {
+    Order(String customerName) {
         products = new String[0];
         sum = 0F;
+        this.customerName = customerName;
     }
 
     public boolean addProduct(Product product) {
@@ -21,10 +23,17 @@ public class Order {
             return true;
         } else
             return false;
-
     }
 
     private void setSum(Float sum) {
         this.sum = sum;
+    }
+
+    public Float getSum() {
+        return sum;
+    }
+
+    public String getCustomerName() {
+        return customerName;
     }
 }

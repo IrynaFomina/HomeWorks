@@ -23,7 +23,7 @@ public class Product {
         return isAvailable;
     }
 
-    public void setAvaliable(Boolean avaliable) {
-        isAvailable = avaliable;
+    public void setAvaliable(Boolean available) {
+        isAvailable = available;
     }
 }
