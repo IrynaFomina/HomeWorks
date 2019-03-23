@@ -7,18 +7,41 @@ package hw.hw4;
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
-        int[][] array1 = new int[10][20];
-        int[][] array2 = new int[10][20];
-        int[][] array3 = new int[10][20];
-        Random random = new Random();
 
-        for (int i = 0; i < array1.length ; i++) {
-            for (int j = 0; j < array1[i].length; j++) {
-                array1[i][j]=random.nextInt(100);
-                array2[i][j]=random.nextInt(100);
-                array3[i][j]= array1[i][j] * array2[i][j];
+    public static void main(String[] args) {
+        int firstSize = 10;
+        int secondSize = 20;
+        int minRandom = 0;
+        int maxRandom = 100;
+        int[][] firstFactor = new int[firstSize][secondSize];
+        int[][] secondFactor = new int[firstSize][secondSize];
+        int[][] result = new int[firstSize][secondSize];
+
+        for (int i = 0; i < firstFactor.length; i++) {
+            for (int j = 0; j < firstFactor[i].length; j++) {
+                firstFactor[i][j] = generateRandomInt(minRandom, maxRandom);
+                secondFactor[i][j] = generateRandomInt(minRandom, maxRandom);
+                result[i][j] = firstFactor[i][j] * secondFactor[i][j];
             }
+        }
+
+        printArray(firstFactor);
+        System.out.println();
+        printArray(secondFactor);
+        System.out.println();
+        printArray(result);
+    }
+
+    private static int generateRandomInt(int min, int max) {
+        return (new Random().nextInt(max - min)) + min;
+    }
+
+    private static void printArray(int[][] array) {
+        for (int[] anArray : array) {
+            for (int anAnArray : anArray) {
+                System.out.print(anAnArray + " ");
+            }
+            System.out.println();
         }
     }
 
