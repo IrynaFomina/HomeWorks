@@ -1,89 +1,93 @@
-//package hw.hw5.part2;
-//
-// interface IAnimal {
-//    String getSize();
-//    String getName();
-//}
-//
-// interface ISwimable {
-//     String swim();
-//}
-//
-// interface IFlyable {
-//     void fly();
-//}
-//
-//interface IBird extends IAnimal{
-//     void sing();
-//     void buildNest();
-//
-//}
-//
-//interface IFish extends IAnimal {
-//    String getHabitat();
-//}
-//
-//
-//
-//class Nightingale implements IBird, IFlyable{
-//    @Override
-//    public String getName() {
-//        return "Nightingale";
-//    }
-//
-//    @Override
-//    public String getSize() {
-//        return "small";
-//    }
-//
-//    @Override
-//    public void fly() {
-//        System.out.println("Nightingale flies");
-//    }
-//
-//    @Override
-//    public void buildNest() {
-//        System.out.println("Nightingale builds a nest");
-//    }
-//
-//    @Override
-//    public void sing() {
-//        System.out.println("tui-tui");
-//    }
-//}
-//
-//class Zander implements IFish, ISwimable{
-//    @Override
-//    public String getName() {
-//        return "Zander";
-//    }
-//
-//    @Override
-//    public String getSize() {
-//        return "medium";
-//    }
-//
-//    @Override
-//    public String swim() {
-//        return  "Zander swim in a " + getHabitat();
-//
-//    }
-//
-//    @Override
-//    public String getHabitat() {
-//        return "river";
-//    }
-//}
-//
-//public class InterfaceDemo {
-//    public static void main(String[] args) {
-//        Zander zander = new Zander();
-//        System.out.println(zander.getName()+ " is " + zander.getSize()+ " size " + " and " + zander.swim());
-//        IFish zanderFish = new Zander();
-//        System.out.println(((Zander) zanderFish).swim());
-//        I
-//
-//    }
-//}
-//
-//
+package hw.hw5.part2;
+
+
+interface IAnimal {
+    String getSize();
+
+    String getName();
+}
+
+interface ISwimable extends IAnimal {
+    String swim();
+}
+
+interface IFlyable extends IAnimal {
+    String fly();
+}
+
+interface IBird extends IAnimal {
+    String sing();
+
+    String buildNest();
+
+}
+
+interface IFish extends ISwimable {
+    String getHabitat();
+}
+
+interface IZander extends IFish {
+
+}
+
+class Zander implements IZander {
+
+    @Override
+    public String getSize() {
+        return "medium size";
+    }
+
+    @Override
+    public String getName() {
+        return "Zander";
+    }
+
+    @Override
+    public String swim() {
+        return "swim";
+    }
+
+    @Override
+    public String getHabitat() {
+        return "rivers";
+    }
+}
+
+class Bird implements IBird {
+    private String name;
+
+    Bird(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getSize() {
+        return "small size";
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String sing() {
+        return "tui-tui";
+    }
+
+    @Override
+    public String buildNest() {
+        return "build nest";
+    }
+
+
+}
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        IZander zander = new Zander();
+        System.out.println(zander.getName() + " has " + zander.getSize() + " and " + zander.swim() + " in " + zander.getHabitat());
+        IBird chicken = new Bird("Chicken");
+        System.out.println(chicken.getName() + " has " + chicken.getSize()+ " and sings: "+ chicken.sing() + " but it can't fly");
+    }
+}
