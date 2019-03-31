@@ -1,5 +1,9 @@
 package hw.hw6.part1;
 
+/**
+ * 1) реализовать свою имплементацию интерфейса List - список в котором не может быть дубликатов;
+ */
+
 import java.util.*;
 
 public class MyList extends ArrayList {
@@ -44,15 +48,9 @@ public class MyList extends ArrayList {
         }
     }
 
-    // Following methods don't have sense
-    @Override
-    public boolean containsAll(Collection c) {
-        return false;
-    }
-
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        return indexOf(o);
     }
 
     private boolean containsNoOne(Collection c){
