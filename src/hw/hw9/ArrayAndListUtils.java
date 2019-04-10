@@ -12,11 +12,11 @@ public class ArrayAndListUtils {
    результат:
        массив где элемент N и M поменяны местами*/
 
-    public static <V> V[]  changePlace (Class<V> clazz, int N, int M){
-        V[] array = (V[]) Array.newInstance(clazz);
-        V temp = array[N];
-        array[N] = array[M];
-        array[M] = temp;
-        return array;
+    public static <V> V[]  changePlace (Object[] array, int N, int M){
+        V[] newArray = (V[])array;
+        V temp = (V) array[N];
+        newArray[N] = (V) array[M];
+        newArray[M] = temp;
+        return newArray;
     }
 }
