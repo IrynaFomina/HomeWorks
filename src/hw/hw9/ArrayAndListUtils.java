@@ -15,7 +15,7 @@ public class ArrayAndListUtils{
    результат:
        массив где элемент N и M поменяны местами*/
 
-    public static <V> V[] changePlace(Object[] array, int N, int M) {
+    private static <V> V[] changePlace(Object[] array, int N, int M) {
         V[] newArray = (V[]) array;
         V temp = (V) array[N];
         newArray[N] = (V) array[M];
@@ -35,7 +35,7 @@ public class ArrayAndListUtils{
 
 /*<T extends Comparable> так правильно определить или так<T extends Comparable<T>> ????*/
 
-    public static <T extends Comparable> T findMaxValue(List<T> list, int N, int M) {
+    private static <T extends Comparable> T findMaxValue(List<T> list, int N, int M) {
         T maxValue = list.get(N);
         for (int i = N; i < M; i++) {
             if (list.get(i + 1).compareTo(maxValue) > 0) {

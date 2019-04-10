@@ -3,7 +3,7 @@ package hw.hw9;
 import java.util.Set;
 
 public class AnyObjectStore1<T> {
-    Set<T> set;
+    private Set<T> set;
     private void add (T element){
         set.add(element);
     }
