@@ -1,5 +1,7 @@
 package hw.hw8.part1;
 
+import hw.hw8.PrintUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,18 +21,9 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             map.put(i,"Number is " + i);
         }
-        System.out.println("Print out with EntrySet:");
-        for (Map.Entry element: map.entrySet()) {
-            System.out.println(element.getKey()+" "+ element.getValue());
-        }
 
-        System.out.println("Print out with KeySet:");
-
-        for (Integer key :map.keySet()) {
-            System.out.println(key+ " "+ map.get(key));
-        }
-
-
+        PrintUtils.printMapEntrySet(map);
+        PrintUtils.printMapKeySet(map);
     }
 
 }

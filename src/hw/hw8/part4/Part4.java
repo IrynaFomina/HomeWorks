@@ -11,7 +11,7 @@
  */
 package hw.hw8.part4;
 
-import hw.hw8.IPrintMap;
+import hw.hw8.PrintUtils;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -27,37 +27,18 @@ import java.util.TreeMap;
  - выdести на консоль значение всех ключей и значений с помощью метода entrySet()
  - вывести на консоль значение всех ключей и значений с помощью метода keySet()
  */
-public class Part4 implements IPrintMap{
-    public static void main(String[] args)
-    {
-        Map<Test2,String> treeMap = new TreeMap();
-        Test2 element1 = new Test2(1,"A");
-        Test2 element2 = new Test2(2,"B");
-        Test2 element3 = new Test2(3,"C");
-        treeMap.put(element3,"first");
+public class Part4 {
+    public static void main(String[] args) {
+        Map<Test2, String> treeMap = new TreeMap();
+        Test2 element1 = new Test2(1, "A");
+        Test2 element2 = new Test2(2, "B");
+        Test2 element3 = new Test2(3, "C");
+        treeMap.put(element3, "first");
         treeMap.put(element2, "second");
         treeMap.put(element1, "third");
-        IPrintMap p = new Part4();
-//        p.printMapEntrySet(treeMap);
-//        printMapEntrySet(treeMap);
-//        printMapKeySet(treeMap);
 
+        PrintUtils.printMapEntrySet(treeMap);
+        PrintUtils.printMapKeySet(treeMap);
     }
-
-
-
-//    private static void printMapEntrySet (Map<Test2,String> map){
-//        System.out.println("Print out with EntrySet:");
-//        for (Map.Entry<Test2,String> element: map.entrySet()) {
-//            System.out.println("Key: " + element.getKey()+ " Value: "+ element.getValue());
-//        }
-//    }
-//
-//    private static void printMapKeySet (Map<Test2,String> map){
-//        System.out.println("Print out with KeySet:");
-//        for (Test2 key:map.keySet()) {
-//            System.out.println("Key: " + key + " Value: "+ map.get(key));
-//        }
-//    }
 
 }

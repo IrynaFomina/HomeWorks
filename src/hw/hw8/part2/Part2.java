@@ -1,5 +1,7 @@
 package hw.hw8.part2;
 
+import hw.hw8.PrintUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,12 +28,8 @@ public class Part2 {
         map.put(t3.intField,t3.stringField);
         map.put(t4.intField,t4.stringField);
 
-        for (Map.Entry element : map.entrySet()) {
-            System.out.println("Key: " + element.getKey() + " Value: " + element.getValue());
-        }
+        PrintUtils.printMapEntrySet(map);
+        PrintUtils.printMapKeySet(map);
 
-        for (Integer key : map.keySet()) {
-            System.out.println("Key: " + key + " Value: " + map.get(key));
-        }
     }
 }

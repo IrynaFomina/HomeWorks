@@ -12,19 +12,20 @@
 package hw.hw8;
 
 import java.util.Map;
-import java.sql.Types.*;
 
-/**
- * TODO: add description
- *
- * @author Irina.Paschenko
- */
-public interface IPrintMap {
-    static <K,V> void  printMapEntrySet(Map<K, V> map){
+public class PrintUtils {
+
+    public static <K,V> void  printMapEntrySet(Map<K, V> map){
         System.out.println("Print out with EntrySet:");
         for (Map.Entry<K,V> element: map.entrySet()) {
             System.out.println("Key: " + element.getKey()+ " Value: "+ element.getValue());
         }
     }
-//    void printMapKeySet(Map map);
+
+    public static <K,V> void printMapKeySet (Map<K,V> map){
+        System.out.println("Print out with KeySet:");
+        for (K key:map.keySet()) {
+            System.out.println("Key: " + key + " Value: "+ map.get(key));
+        }
+    }
 }
