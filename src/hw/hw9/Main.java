@@ -22,8 +22,7 @@ public class Main {
 
     public static void main(String[] args) {
         DataStructure ds = new DataStructure();
-
-        Iterator it = ds.getEvenIterator();
+        Iterator it = ds.iterator();
         while (it.hasNext()) {
             System.out.println(it.next());
         }

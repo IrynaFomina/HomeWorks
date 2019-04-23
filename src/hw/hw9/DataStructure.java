@@ -1,5 +1,7 @@
 package hw.hw9;
 
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 /*
@@ -8,7 +10,7 @@ import java.util.Iterator;
 
 3) создать в классее DataStructure метод для возврата объекта EvenIterator
 */
-public class DataStructure implements Iterable<DataStructure> {
+public class DataStructure implements Iterable {
 
     private final static int SIZE = 15;
     private int[] arrayOfInts = new int[SIZE];
@@ -20,20 +22,18 @@ public class DataStructure implements Iterable<DataStructure> {
         }
     }
 
-    public EvenIterator getEvenIterator() {
+    @Override
+    public EvenIterator iterator() {
         return new EvenIterator();
     }
 
-    @Override
-    public Iterator<DataStructure> iterator() {
-        throw new UnsupportedOperationException();
-    }
-
-    interface DataStructureIterator extends java.util.Iterator<Integer> {
-    }
-
-    private class EvenIterator implements DataStructureIterator {
+    private class EvenIterator implements Iterator {
+        int[] original;
         int cursor = -1;
+
+        EvenIterator(){
+            this.original = Arrays.copyOf(arrayOfInts,SIZE);
+        }
 
         @Override
         public boolean hasNext() {
@@ -42,7 +42,13 @@ public class DataStructure implements Iterable<DataStructure> {
 
         @Override
         public Integer next() {
-            return arrayOfInts[++cursor];
+            if (arrayOfInts[++cursor] == original[cursor]){
+                return arrayOfInts[cursor];
+            }
+            else
+            {
+                throw new ConcurrentModificationException();
+            }
         }
     }
 }
