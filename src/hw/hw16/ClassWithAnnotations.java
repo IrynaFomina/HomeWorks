@@ -2,6 +2,7 @@ package hw.hw16;
 
 public class ClassWithAnnotations {
     private String val1 = "Test";
+
     @Analyzable(
             description = "Int value",
             version = "1.0")
