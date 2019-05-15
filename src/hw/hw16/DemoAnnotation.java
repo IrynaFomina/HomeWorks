@@ -1,10 +1,7 @@
 package hw.hw16;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
+import java.lang.reflect.*;
 
 /*3) метод analyze должен проверять все свойства, методы, конструкторы в классе clazz, и если они помечены аннотацией @Analyzable
 
@@ -20,38 +17,38 @@ public class DemoAnnotation implements ICodeAnalyzer {
         System.out.println("Fields: ");
         for (Field field : fields) {
             if (field.isAnnotationPresent(Analyzable.class)) {
-                System.out.print("@");
                 printAnnotations(field.getAnnotations());
                 System.out.println("    " + field.getType() + " " + field.getName());
                 if (field.isAnnotationPresent(Analyzable.class)) {
-
                 }
             }
         }
 
         Method[] methods = clazz.getDeclaredMethods();
+        System.out.println("Methods: ");
         for (Method method : methods) {
-            System.out.print("Method Name: " + method.getName());
-            printParams(method.getParameters());
             if (method.isAnnotationPresent(Analyzable.class)) {
                 printAnnotations(method.getAnnotations());
+                System.out.print("  " + method.getName());
+                printParams(method.getParameters());
             }
         }
 
         Constructor[] constructors = clazz.getConstructors();
+        System.out.println("Constructors: ");
         for (Constructor constructor : constructors) {
             if (constructor.isAnnotationPresent(Analyzable.class)) {
-                System.out.print("Constructor Name: " + clazz.getSimpleName());
-                printParams(constructor.getParameters());
                 printAnnotations(constructor.getAnnotations());
+                System.out.print("  " + clazz.getSimpleName());
+                printParams(constructor.getParameters());
+
             }
         }
     }
 
     private void printAnnotations(Annotation[] annotations) {
-        System.out.println("Annotations: ");
         for (Annotation annotation : annotations) {
-            System.out.println("@"+annotation.annotationType().getSimpleName());
+            System.out.println("    @" + annotation.annotationType().getSimpleName() + " ");
         }
     }
 
@@ -62,5 +59,4 @@ public class DemoAnnotation implements ICodeAnalyzer {
         }
         System.out.println(")");
     }
-
 }
